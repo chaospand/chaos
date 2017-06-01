@@ -2,24 +2,52 @@ package cn.chaos;
 
 import java.math.BigDecimal;
 import java.time.YearMonth;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class MyTest {
 
 	private Pair pair;
 	
 	public static void main(String[] args) {
-		Calendar c = Calendar.getInstance();
+	/*	Calendar c = Calendar.getInstance();
 		c.setTime(new Date());
 		System.out.println(c.get(Calendar.DAY_OF_MONTH));
 		Date xx = new Date();
-		xx.setDate(1);
+		xx.setMonth(1);
 		c.setTime(xx);
 		System.out.println(c.get(Calendar.DAY_OF_MONTH));
+		getDaysOfMonth(YearMonth.now());*/
+	/*	List<Integer> list = getList();
+		List<Integer> list2 = new ArrayList();
+		list2.add(1);list2.add(2);list2.add(3);
+		list2.addAll(list);
+		System.out.println(list2);*/
+		Map<String,List<Integer>> data = new HashMap();
+		data.put("0",getList() );
+		data.put("1",getList() );
+		List<Object> asList = Arrays.asList(data.values().toArray());
+		System.out.println(asList);
 	}
 	
+	
+	public static List<Integer> getList(){
+		List<Integer>  xx = new ArrayList<Integer>();
+		Random random = new Random();
+		for(int i=0;i<10;i++){
+			xx.add(random.nextInt(20));
+		}
+		System.out.println(xx);
+		return xx;
+	}
 	
 	public static BigDecimal getSum(List<BigDecimal> data){
 		int size = data.size();
